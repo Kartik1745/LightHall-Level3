@@ -8,7 +8,7 @@ const Leaderboard = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch('https://hangmanserver.KartikPatil.repl.co/leaderboard', {
+    fetch('https://localhost:6046/leaderboard', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

@@ -24,7 +24,7 @@ const RankGameLogin = () => {
   const fetchWord = (id) => {
     setLoading(true);
 
-    fetch(`https://hangmanserver.KartikPatil.repl.co/word/${id}`, {
+    fetch(`https://localhost:6046/word/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -81,7 +81,7 @@ const RankGameLogin = () => {
 
   const onSubmit = () => {
     if (valid) {
-      fetch('https://hangmanserver.KartikPatil.repl.co/newplayer', {
+      fetch('https://localhost:6046/newplayer', {
         method: 'POST',
         body: JSON.stringify({
           newplayer: username,

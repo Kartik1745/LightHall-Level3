@@ -42,7 +42,7 @@ const Challenge = () => {
       setHasError(true);
       setMessage('The word cannot have spaces.');
     } else if (valid) {
-      fetch('https://hangmanserver.KartikPatil.repl.co/single-game', {
+      fetch('https://localhost:6046/single-game', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

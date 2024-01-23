@@ -46,7 +46,7 @@ const Game = (props) => {
 
   // const getHint = (clue) => {
   //   fetch(
-  //     `https://hangmanserver.KartikPatil.repl.co/hint/${props.userid}/${clue}`,
+  //     `https://localhost:6046/hint/${props.userid}/${clue}`,
   //     {
   //       method: 'GET',
   //       headers: {
@@ -68,7 +68,7 @@ const Game = (props) => {
 
   const handleletterclick = (letter) => {
     fetch(
-      `https://hangmanserver.KartikPatil.repl.co/make-guess/${props.userid}/${letter}`,
+      `https://localhost:6046/make-guess/${props.userid}/${letter}`,
       {
         method: 'GET',
         headers: {
@@ -116,7 +116,7 @@ const Game = (props) => {
   };
 
   const nextGameHandler = () => {
-    fetch(`https://hangmanserver.KartikPatil.repl.co/word/${props.userid}`, {
+    fetch(`https://localhost:6046/word/${props.userid}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

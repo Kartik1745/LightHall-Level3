@@ -19,7 +19,7 @@ const SharedGame = () => {
   useEffect(() => {
     setLoading(true);
 
-    fetch(`https://hangmanserver.KartikPatil.repl.co/word/${id}`, {
+    fetch(`https://localhost:6046/word/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ const SharedGame = () => {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [id]);
 
   return (
     <>
