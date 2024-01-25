@@ -23,6 +23,8 @@ const Game = (props) => {
 
   const [isWinner, setIsWinner] = useState(false);
   const [gameOver, setGameOver] = useState(false);
+  const [hintButtonDisabled, setHintButtonDisabled] = useState(false);
+  const [def, setDef] = useState('Get definition');
 
   const letters1 = 'abcdefghijklm';
   const letters2 = 'nopqrstuvwxyz';
@@ -44,31 +46,30 @@ const Game = (props) => {
     Cookies.remove('username');
   };
 
-  // const getHint = (clue) => {
-  //   fetch(
-  //     `https://localhost:6046/hint/${props.userid}/${clue}`,
-  //     {
-  //       method: 'GET',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //     }
-  //   )
-  //     .then((response) => {
-  //       return response.json();
-  //     })
-  //     .then((data) => {
-  //       if (clue === 'def') {
-  //         setDef(data.definition);
-  //       } else if (clue === 'pop') {
-  //         // set word
-  //       }
-  //     });
-  // };
+  const getHint = (clue) => {
+    fetch(
+      `https://hgame-n3aj.onrender.com/hint/${props.userid}/${clue}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        if (clue === 'def') {
+          setDef(data.definition);
+          setHintButtonDisabled(true);
+        }
+      });
+  };
 
   const handleletterclick = (letter) => {
     fetch(
-      `https://localhost:6046/make-guess/${props.userid}/${letter}`,
+      `https://hgame-n3aj.onrender.com/make-guess/${props.userid}/${letter}`,
       {
         method: 'GET',
         headers: {
@@ -110,13 +111,11 @@ const Game = (props) => {
         props.setGuessesLeft(data.guesses_left);
 
         props.setWord(data.word);
-
-        // set hints_left -- for displaying to user
       });
   };
 
   const nextGameHandler = () => {
-    fetch(`https://localhost:6046/word/${props.userid}`, {
+    fetch(`https://hgame-n3aj.onrender.com/word/${props.userid}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -134,6 +133,8 @@ const Game = (props) => {
         props.setWord(jsonbody.word);
         props.setGuessesLeft(jsonbody.guesses_left);
         props.setGuessedLetters("")
+        setHintButtonDisabled(false)
+        setDef("Get definition") 
         setWrong(8)
         setGameOver(false);
       });
@@ -154,14 +155,14 @@ const Game = (props) => {
             <h1 className='name'>{props.username}</h1>
             <h1 className='score'>Score: {props.score}</h1>
           </div>
-          {/* <div className='hint-grp'>
-            <button className='def-btn' onClick={() => getHint('def')}>
+          <div className='hint-grp'>
+            {/* <button className='def-btn' onClick={() => getHint('def')}>
               Get definition
+            </button> */}
+            <button className='hint-btn' onClick={() => getHint('def')} disabled={hintButtonDisabled}>
+              {def}
             </button>
-            <button className='hint-btn' onClick={() => getHint('pop')}>
-              Get hint
-            </button>
-          </div> */}
+          </div>
         </div>
         <div className='game-container'>
           <div className='word-container'>

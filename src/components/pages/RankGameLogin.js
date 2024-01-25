@@ -24,7 +24,7 @@ const RankGameLogin = () => {
   const fetchWord = (id) => {
     setLoading(true);
 
-    fetch(`https://localhost:6046/word/${id}`, {
+    fetch(`https://hgame-n3aj.onrender.com/word/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -81,7 +81,7 @@ const RankGameLogin = () => {
 
   const onSubmit = () => {
     if (valid) {
-      fetch('https://localhost:6046/newplayer', {
+      fetch('http://127.0.0.1:6046/newplayer', {
         method: 'POST',
         body: JSON.stringify({
           newplayer: username,

@@ -19,7 +19,7 @@ const SharedGame = () => {
   useEffect(() => {
     setLoading(true);
 
-    fetch(`https://localhost:6046/word/${id}`, {
+    fetch(`https://hgame-n3aj.onrender.com/word/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

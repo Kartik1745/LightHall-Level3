@@ -42,7 +42,7 @@ const Challenge = () => {
       setHasError(true);
       setMessage('The word cannot have spaces.');
     } else if (valid) {
-      fetch('https://localhost:6046/single-game', {
+      fetch('https://hgame-n3aj.onrender.com/single-game', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

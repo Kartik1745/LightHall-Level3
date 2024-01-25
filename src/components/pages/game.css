@@ -3,7 +3,6 @@
 }
 
 .game-container {
-    /* height: 100vh; */
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
@@ -14,9 +13,6 @@
     display: flex;
     flex-direction: column;
     margin-top: 7rem;
-    /* position: absolute;
-    left: 209px;
-    top: 154px; */
     font-family: 'Patrick Hand SC';
     font-style: normal;
     font-size: 20px;
@@ -49,7 +45,6 @@
     width: 5em;
     box-sizing: border-box;
     padding: 5px;
-    /* max-width: 400px; */
 }
 
 .def-btn {
@@ -70,11 +65,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* position: absolute;
-    width: 954px;
-    height: 71px;
-    left: 343px;
-    top: 647px; */
     align-content: center;
 }
 
@@ -110,21 +100,10 @@
 .img {
     display: flex;
     width: 30rem;
-    /* width: 480px; */
-    /* position: absolute; */
-    /* height: 400px;
-    left: 543px;
-    top: 64px; */
     align-content: center;
 }
 
 .word-arr {
-    /* margin-top: 400px; */
-    /* position: absolute; */
-    /* width: 800px;
-    height: 71px; */
-    /* left: 625px;
-    top: 464px; */
     font-family: Slackey;
     letter-spacing: 1rem;
     font-size: 3.5rem;

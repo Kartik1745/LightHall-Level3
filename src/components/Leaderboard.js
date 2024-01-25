@@ -8,7 +8,7 @@ const Leaderboard = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch('https://localhost:6046/leaderboard', {
+    fetch('https://hgame-n3aj.onrender.com/leaderboard', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
