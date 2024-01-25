@@ -81,7 +81,7 @@ const RankGameLogin = () => {
 
   const onSubmit = () => {
     if (valid) {
-      fetch('http://127.0.0.1:6046/newplayer', {
+      fetch('https://hgame-n3aj.onrender.com/newplayer', {
         method: 'POST',
         body: JSON.stringify({
           newplayer: username,
